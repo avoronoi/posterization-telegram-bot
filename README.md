@@ -1,2 +1,4 @@
-# posterization-telegram-bot
-A Telegram bot for image posterization
+## TODO
+- Specify amount of colors by replying to image
+- Create several operations
+- Send "Processing image..." message
