@@ -1,5 +1,6 @@
 import os
 import io
+from multiprocessing import freeze_support
 
 from telebot import TeleBot
 import dotenv
@@ -47,7 +48,9 @@ def color_num(message):
     posterized_image.save(buffer, format='PNG')
     buffer.seek(0)
     
-    bot.send_photo(message.chat.id, reply_to_message_id=original_image_id, photo=buffer)
+    bot.send_photo(message.chat.id, reply_to_message_id=original_image_id, 
+                   photo=buffer)
 
-        
-bot.infinity_polling()
+if __name__ == '__main__':
+    freeze_support()
+    bot.infinity_polling()

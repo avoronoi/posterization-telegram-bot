@@ -3,6 +3,7 @@ from posterize_image import posterize_image
 from PIL import Image
 
 K_MEANS_TRIALS = 10
+K_MEANS_EPS = 1e-2
 
 class Operation:
     def __init__(self):
@@ -35,5 +36,6 @@ class Operation:
         color_num = self.color_num
         self.image = self.image_id = self.color_num = None
         posterized_image = posterize_image(np_image, color_num, 
-                                           n_init=K_MEANS_TRIALS)
+                                           n_init=K_MEANS_TRIALS,
+                                           eps=K_MEANS_EPS)
         return Image.fromarray(posterized_image), image_id
